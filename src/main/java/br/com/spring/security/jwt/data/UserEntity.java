@@ -2,19 +2,20 @@ package br.com.spring.security.jwt.data;
 
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-public class UserData implements Serializable {
+public class UserEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	private String userName;
 	private String password;
+
 	public String getUserName() {
 		return userName;
 	}

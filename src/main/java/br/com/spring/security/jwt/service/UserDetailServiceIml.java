@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import br.com.spring.security.jwt.data.UserData;
+import br.com.spring.security.jwt.data.UserEntity;
 
 @Service
 public class UserDetailServiceIml implements UserDetailsService {
@@ -28,7 +28,7 @@ public class UserDetailServiceIml implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		UserData user = findUser(username);
+		UserEntity user = findUser(username);
 		if (null == user) {
 			throw new UsernameNotFoundException(username);
 		}
@@ -36,11 +36,12 @@ public class UserDetailServiceIml implements UserDetailsService {
 		return new User(user.getUserName(), user.getPassword(), Collections.emptyList());
 	}
 
-	private UserData findUser(String username) {
+	private UserEntity findUser(String username) {
 
-		UserData user = new UserData();
+		//	buscar usuarios do banco
+		UserEntity user = new UserEntity();
 		user.setUserName("admin");
-		user.setPassword(bCryptPasswordEncoder.encode("admin"));
+		user.setPassword(bCryptPasswordEncoder.encode("nimda"));
 
 		return user;
 	}

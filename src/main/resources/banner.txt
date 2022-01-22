@@ -1,3 +1,10 @@
 *********************
 	Olá
 *********************
+URL´s
+http://localhost:8080/status
+http://localhost:8080/login
+	user: admin
+	pass: nimda
+http://localhost:8080/all-users
+*********************
